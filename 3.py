@@ -4,6 +4,8 @@ def is_prime(n):
 
     if n <= 1:
         return False
+    elif n==2:
+        return False
     elif n % 2 == 0:
         return False
     else:
@@ -14,14 +16,17 @@ def is_prime(n):
             
         return True
       
-    
+
 x = 600851475143  
-y = math.floor(math.sqrt(x)) + 1  
+y = 2
 
 while True:
-    if x % y == 0 and is_prime(y):
-        break
+    if x % y == 0:
+        if is_prime(int(x/y)):
+            break
+        else:
+            x = x / y
     else:
-        y = y-1
+        y = y+1
     
-print(y)
+print(x/y)
